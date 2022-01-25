@@ -25,7 +25,7 @@ public class StockItemService {
 
 	public StockItem modifyStockItem(Long id, StockItem item) {
 		Optional<StockItem> optionalStockItem = stockItemRepository.findById(id);
-		if(optionalStockItem.isPresent()) {
+		if(!optionalStockItem.isPresent()) {
 			return null;
 		}
 		StockItem stockItem = optionalStockItem.get();
