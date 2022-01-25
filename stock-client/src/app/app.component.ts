@@ -22,13 +22,7 @@ export class AppComponent {
       console.log(data);
     });
 
-    this.http.post("http://localhost:8080/stockitem", {
-      "serialNumber": "DZSONI",
-      "name": "BBBBB",
-      "description": "CCCCCC"
-  }).subscribe((data: any) => {
-    console.log(data);
-  })
+
     //this.doOCR();
   }
 

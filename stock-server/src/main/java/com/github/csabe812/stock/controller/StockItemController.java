@@ -2,15 +2,18 @@ package com.github.csabe812.stock.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.csabe812.stock.domain.StockItem;
@@ -28,7 +31,12 @@ public class StockItemController {
 		return "HelloWorld";
 	}
 
-	@PostMapping(path = "stockitem", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping("stockitem")
+	public ResponseEntity<List<StockItem>> getStockItems() {
+		return new ResponseEntity<>(stockItemService.getAllStockItem(), HttpStatus.OK);
+	}
+
+	@PostMapping("stockitem")
 	public ResponseEntity<StockItem> create(@RequestBody StockItem newStockItem) throws Exception {
 		StockItem stockItem = stockItemService.saveStockItem(newStockItem);
 		if (stockItem == null) {
@@ -37,9 +45,25 @@ public class StockItemController {
 			return new ResponseEntity<>(stockItem, HttpStatus.CREATED);
 		}
 	}
-	
-	@GetMapping(path = "stockitem")
-	public ResponseEntity<List<StockItem>> getStockItems() {
-		return new ResponseEntity<>(stockItemService.getAllStockItem(), HttpStatus.OK);
+
+	@PutMapping("stockitem/{id}")
+	public ResponseEntity<StockItem> modify(@PathVariable(value = "id") Long id,
+			@Valid @RequestBody StockItem modifiedStockItem) throws Exception {
+		StockItem stockItem = stockItemService.modifyStockItem(id, modifiedStockItem);
+		if (null == stockItem) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(stockItem, HttpStatus.OK);
+		}
+	}
+
+	@DeleteMapping("stockitem/{id}")
+	public ResponseEntity delete(@PathVariable(value = "id") Long id) {
+		try {
+			stockItemService.deleteStockItem(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }

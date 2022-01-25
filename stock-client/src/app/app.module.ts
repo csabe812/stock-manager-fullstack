@@ -6,9 +6,11 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddStockItemComponent } from './add-stock-item/add-stock-item.component';
 
 @NgModule({
   declarations: [
+    AddStockItemComponent,
     AppComponent
   ],
   imports: [
