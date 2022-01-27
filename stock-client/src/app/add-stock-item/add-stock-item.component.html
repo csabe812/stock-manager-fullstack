@@ -1,4 +1,8 @@
-<input (keyup)="onSerialNumberKey($event)">
-<input (keyup)="onNameKey($event)">
-<input (keyup)="onDescKey($event)">
-<a class="btn btn-primary" (click)="onClick()">Add</a>
+<div class="d-flex flex-column">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input class="mb-2" formControlName="serialNumber" class="form-control">
+    <input class="mb-2" formControlName="name" class="form-control">
+    <input class="mb-2" formControlName="description" class="form-control">
+    <button class="btn btn-primary">Add</button>
+  </form>
+</div>

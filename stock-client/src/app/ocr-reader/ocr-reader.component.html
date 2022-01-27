@@ -1,0 +1,10 @@
+<div class="d-flex flex-column my-2 w-100">
+  <input (keyup)="imageKeyup($event)">
+  <img [src]="img" class="img-fluid" />
+  <div class="progress my-2" *ngIf="progressStarted">
+    <div class="progress-bar" role="progressbar" attr.aria-valuenow="{{status}}" aria-valuemin="0" aria-valuemax="100"
+      [ngStyle]="{width: status + '%'}">{{status}} %</div>
+  </div>
+  <p>{{ocrResult}}</p>
+  <a class="btn btn-primary" (click)="detectImageClicked()">Detect image</a>
+</div>

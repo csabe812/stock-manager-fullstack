@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-stock-item',
@@ -8,33 +9,30 @@ import { Component } from '@angular/core';
 })
 export class AddStockItemComponent {
 
-  serialNumber: string = "";
-  serialName: string = "";
-  serialDescription: string = "";
+  form: FormGroup;
 
-  constructor(private http: HttpClient) {
-
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      serialNumber: ['', Validators.required],
+      name: ['', Validators.required],
+      description: ['', Validators.required]
+    });
   }
 
-  onSerialNumberKey(event: any) {
-    this.serialNumber = event.target.value;
-  }
-
-  onNameKey(event: any) {
-    this.serialName = event.target.value;
-  }
-
-  onDescKey(event: any) {
-    this.serialDescription = event.target.value;
-  }
-
-  onClick() {
-    this.http.post("http://localhost:8080/stockitem", {
-      "serialNumber": this.serialNumber,
-      "name": this.serialName,
-      "description": this.serialDescription
-  }).subscribe((data: any) => {
-    console.log(data);
-  });
+  onSubmit() {
+    console.log(this.form.value.serialNumber);
+    console.log(this.form.value.name);
+    console.log(this.form.value.description);
+    if (this.form.valid) {
+      this.http.post("http://localhost:8080/stockitem", {
+        "serialNumber": this.form.value.serialNumber,
+        "name": this.form.value.name,
+        "description": this.form.value.description
+      }).subscribe((data: any) => {
+        console.log(data);
+      });
+    }
   }
 }

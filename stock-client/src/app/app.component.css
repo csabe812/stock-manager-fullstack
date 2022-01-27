@@ -1,3 +1,8 @@
 zxing-scanner {
   max-width: 30em;
 }
+
+
+qr-code-generator, ocr-reader {
+  align-self: center;
+}
