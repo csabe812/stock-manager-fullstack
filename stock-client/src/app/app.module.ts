@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QRCodeModule } from 'angularx-qrcode';
@@ -12,6 +12,8 @@ import { AddStockItemComponent } from './add-stock-item/add-stock-item.component
 import { QrCodeGeneratorComponent } from './qr-code-generator/qr-code-generator.component';
 import { OcrReaderComponent } from './ocr-reader/ocr-reader.component';
 import { QrCodeReaderComponent } from './qr-code-reader/qr-code-reader.component';
+import { NgbModule, NgbTimepicker } from '@ng-bootstrap/ng-bootstrap';
+import { FromToTimepickerComponent } from './from-to-timepicker/from-to-timepicker.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { QrCodeReaderComponent } from './qr-code-reader/qr-code-reader.component
     QrCodeGeneratorComponent,
     OcrReaderComponent,
     QrCodeReaderComponent,
+    FromToTimepickerComponent,
     AppComponent
   ],
   imports: [
@@ -27,6 +30,8 @@ import { QrCodeReaderComponent } from './qr-code-reader/qr-code-reader.component
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
+    NgbModule,
+    FormsModule,
     AppRoutingModule,
   ],
   providers: [],
