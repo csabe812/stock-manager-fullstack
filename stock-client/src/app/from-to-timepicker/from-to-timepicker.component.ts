@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
-import {NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+import { NgbTimepicker } from '@ng-bootstrap/ng-bootstrap';
 import { isMinusToken } from 'typescript';
 
 @Component({

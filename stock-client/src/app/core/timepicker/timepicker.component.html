@@ -1,0 +1,10 @@
+<div class="timepicker">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="d-flex flex-row">
+      <input class="mb-2" formControlName="hour" class="form-control" maxlength="2" placeholder="hh">
+      <div class="mx-2 align-self-center">:</div>
+      <input class="mb-2" formControlName="minute" class="form-control" maxlength="2" placeholder="mm">
+    </div>
+    <p *ngIf="!form.valid && form.touched">Error</p>
+  </form>
+</div>

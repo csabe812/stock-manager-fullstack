@@ -12,8 +12,10 @@ import { AddStockItemComponent } from './add-stock-item/add-stock-item.component
 import { QrCodeGeneratorComponent } from './qr-code-generator/qr-code-generator.component';
 import { OcrReaderComponent } from './ocr-reader/ocr-reader.component';
 import { QrCodeReaderComponent } from './qr-code-reader/qr-code-reader.component';
-import { NgbModule, NgbTimepicker } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FromToTimepickerComponent } from './from-to-timepicker/from-to-timepicker.component';
+import { TimepickerComponent } from './core/timepicker/timepicker.component';
+import { TimepickerIntervalComponent } from './core/timepicker-interval/timepicker-interval.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { FromToTimepickerComponent } from './from-to-timepicker/from-to-timepick
     OcrReaderComponent,
     QrCodeReaderComponent,
     FromToTimepickerComponent,
+    TimepickerComponent,
+    TimepickerIntervalComponent,
     AppComponent
   ],
   imports: [

@@ -1,1 +1,8 @@
-<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+
+
+<div class="d-flex flex-column">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ngb-timepicker [(ngModel)]="time" formControlName="time"></ngb-timepicker>
+    <button class="btn btn-primary">Add</button>
+  </form>
+</div>
