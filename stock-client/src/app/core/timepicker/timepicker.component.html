@@ -1,10 +1,19 @@
 <div class="timepicker">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="d-flex flex-row">
-      <input class="mb-2" formControlName="hour" class="form-control" maxlength="2" placeholder="hh">
-      <div class="mx-2 align-self-center">:</div>
-      <input class="mb-2" formControlName="minute" class="form-control" maxlength="2" placeholder="mm">
+    <div *ngFor="let timepicker of timepickerFormGroups; let i = index">
+      <div [formGroup]="timepicker" class="d-flex flex-row mb-2">
+        <input class="mb-2" formControlName="fromHour" class="form-control" maxlength="2" placeholder="hh">
+        <div class="mx-2 align-self-center">:</div>
+        <input class="mb-2" formControlName="fromMinute" class="form-control" maxlength="2" placeholder="mm">
+        <div class="mx-5 align-self-center">-</div>
+        <input class="mb-2" formControlName="toHour" class="form-control" maxlength="2" placeholder="hh">
+        <div class="mx-2 align-self-center">:</div>
+        <input class="mb-2" formControlName="toMinute" class="form-control" maxlength="2" placeholder="mm">
+        <a class="btn btn-danger ml-2" (click)="deleteRowByIndex(i)">X</a>
+      </div>
     </div>
-    <p *ngIf="!form.valid && form.touched">Error</p>
+    <p *ngIf="(!form.valid && form.touched) || !isAllOk" class="text-danger">Error</p>
+    <a class="btn btn-primary" (click)="addNew()">Add new</a>
+    <button class="btn btn-primary">Save</button>
   </form>
 </div>
