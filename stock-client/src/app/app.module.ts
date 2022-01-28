@@ -14,6 +14,7 @@ import { OcrReaderComponent } from './ocr-reader/ocr-reader.component';
 import { QrCodeReaderComponent } from './qr-code-reader/qr-code-reader.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TimepickerComponent } from './core/timepicker/timepicker.component';
+import { CurrentMonthComponent } from './current-month/current-month';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TimepickerComponent } from './core/timepicker/timepicker.component';
     OcrReaderComponent,
     QrCodeReaderComponent,
     TimepickerComponent,
+    CurrentMonthComponent,
     AppComponent
   ],
   imports: [

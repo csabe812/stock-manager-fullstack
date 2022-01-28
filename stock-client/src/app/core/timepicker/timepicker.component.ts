@@ -9,14 +9,17 @@ import { FormBuilder, FormControl, FormGroup, Validators, FormArray } from '@ang
 export class TimepickerComponent {
 
   form: FormGroup;
-  isAllOk: boolean = true;
+  isAllOk: boolean = false;
 
   constructor() {
     this.form = new FormGroup({
-      'timepicker': new FormArray([this.createTimePickerFormGroup()])
+      'timepicker': new FormArray([])
     });
     this.form.statusChanges.subscribe(
-      (status) => console.log(status)
+      (status) => {
+        console.log(status);
+        this.isAllOk = this.isIntervalOk();
+      }
     );
     console.log(<FormArray>this.form.get('timepicker'));
   }
@@ -46,7 +49,6 @@ export class TimepickerComponent {
   }
 
   onSubmit() {
-    this.isAllOk = this.isIntervalOk();
     console.log(this.isIntervalOk());
     console.log(this.form);
   }
