@@ -25,7 +25,7 @@ export class OcrReaderComponent {
     console.log("started");
     const worker = createWorker({
       logger: m => {
-        if(m.status == 'recognizing text') {
+        if (m.status == 'recognizing text') {
           this.progressStarted = true;
           this.status = Math.round(m.progress * 100);
         }
@@ -42,5 +42,16 @@ export class OcrReaderComponent {
 
   imageKeyup(event: any) {
     this.img = event.target.value;
+  }
+
+  readFile(event: any): void {
+    if (event?.target?.files && event?.target?.files[0]) {
+      const file = event.target.files[0];
+
+      const reader = new FileReader();
+      reader.onload = e => this.img = ""+reader.result;
+
+      reader.readAsDataURL(file);
+    }
   }
 }

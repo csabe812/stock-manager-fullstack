@@ -1,8 +1,9 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column mt-3">
+  <h1 class="text-primary text-center mb-3">Add a new item</h1>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <input class="mb-2" formControlName="serialNumber" class="form-control">
-    <input class="mb-2" formControlName="name" class="form-control">
-    <input class="mb-2" formControlName="description" class="form-control">
-    <button class="btn btn-primary">Add</button>
+    <input placeholder="Serial Number" formControlName="serialNumber" class="form-control mb-2">
+    <input placeholder="Name" formControlName="name" class="form-control mb-2">
+    <input placeholder="Description" formControlName="description" class="form-control mb-2">
+    <button class="btn btn-primary text-white">Add</button>
   </form>
 </div>

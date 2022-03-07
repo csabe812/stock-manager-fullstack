@@ -1,11 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">My new hobby project - 2022</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/read-ocr">OCR Reader</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/generate-qr">QR Generator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/stock-item-add">Add stock-item</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/timepicker">Timepicker</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/current-month">Current month</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/list-stock-items">List items</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
   <div class="d-flex flex-column">
-    <qr-code-generator [qrString]="myAngularxQrCode"></qr-code-generator>
-    <input (keyup)="onKey($event)">
-    <ocr-reader></ocr-reader>
+    <router-outlet></router-outlet>
+    <!--qr-code-generator [qrString]="myAngularxQrCode"></qr-code-generator>
     <qr-code-reader></qr-code-reader>
     <app-add-stock-item></app-add-stock-item>
     <timepicker class="my-2"></timepicker>
-    <current-month></current-month>
+    <current-month></current-month-->
   </div>
 </div>

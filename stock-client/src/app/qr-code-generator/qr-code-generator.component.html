@@ -1,11 +1,8 @@
-<qrcode
-  [qrdata]="qrString"
-  [allowEmptyString]="true"
-  [colorDark]="'#000000ff'"
-  [colorLight]="'#ffffffff'"
-  [elementType]="'canvas'"
-  [errorCorrectionLevel]="'M'"
-  [margin]="4"
-  [scale]="1"
-  [width]="300">
-</qrcode>
+<div class="mt-3">
+  <h1 class="text-primary text-center mb-3">QR Code Generator</h1>
+  <input class="form-control mb-3" placeholder="Enter text" (keyup)="onKey($event)">
+  <qrcode class="text-center" [qrdata]="myAngularxQrCode" [allowEmptyString]="true" [colorDark]="'#000000ff'"
+    [colorLight]="'#ffffffff'" [elementType]="'canvas'" [errorCorrectionLevel]="'M'" [margin]="0" [scale]="2"
+    [width]="300">
+  </qrcode>
+</div>

@@ -15,6 +15,7 @@ import { QrCodeReaderComponent } from './qr-code-reader/qr-code-reader.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TimepickerComponent } from './core/timepicker/timepicker.component';
 import { CurrentMonthComponent } from './current-month/current-month';
+import { ListStockItemComponent } from './list-stock-item/list-stock-item.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CurrentMonthComponent } from './current-month/current-month';
     QrCodeReaderComponent,
     TimepickerComponent,
     CurrentMonthComponent,
+    ListStockItemComponent,
     AppComponent
   ],
   imports: [
@@ -34,7 +36,7 @@ import { CurrentMonthComponent } from './current-month/current-month';
     ReactiveFormsModule,
     NgbModule,
     FormsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

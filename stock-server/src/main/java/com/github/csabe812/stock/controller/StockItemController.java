@@ -20,7 +20,7 @@ import com.github.csabe812.stock.domain.StockItem;
 import com.github.csabe812.stock.service.StockItemService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class StockItemController {
 
 	@Autowired

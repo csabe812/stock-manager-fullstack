@@ -1,6 +1,16 @@
-<div class="d-flex flex-column my-2 w-100">
-  <input (keyup)="imageKeyup($event)">
+<div class="d-flex flex-column mt-3 w-100">
+  <h1 class="text-primary text-center mb-3">OCR Reader</h1>
   <img [src]="img" class="img-fluid" />
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="readFile($event);">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
+  </div>
+  <input class="form-control" placeholder="Enter image URL" (keyup)="imageKeyup($event)">
   <div class="progress my-2" *ngIf="progressStarted">
     <div class="progress-bar" role="progressbar" attr.aria-valuenow="{{status}}" aria-valuemin="0" aria-valuemax="100"
       [ngStyle]="{width: status + '%'}">{{status}} %</div>

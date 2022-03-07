@@ -6,5 +6,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./qr-code-generator.component.css']
 })
 export class QrCodeGeneratorComponent {
-  @Input() qrString = '';
+  myAngularxQrCode = '';
+
+  onKey(event: any) {
+    this.myAngularxQrCode = 'Hello World :-)';
+    this.myAngularxQrCode = event.target.value;
+    console.log(event.target.value);
+
+  }
 }

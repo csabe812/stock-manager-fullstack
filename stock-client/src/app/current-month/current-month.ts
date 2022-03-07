@@ -8,9 +8,11 @@ import { Component } from '@angular/core';
 export class CurrentMonthComponent {
 
   dayOfMonthList: Date[] = [];
+  today: Date = new Date();
+  monthName: string = "";
 
   constructor(){
-    this.dayOfMonthList = this.getDaysInMonth(new Date().getMonth(), new Date().getFullYear());
+    this.dayOfMonthList = this.getDaysInMonth(this.today.getMonth(), this.today.getFullYear());
   }
 
   getDaysInMonth(month: number, year: number) {
@@ -20,6 +22,17 @@ export class CurrentMonthComponent {
       days.push(new Date(date));
       date.setDate(date.getDate() + 1);
     }
+    this.monthName = this.today.toLocaleString('default', { month: 'long' });
     return days;
+  }
+
+  prevMonth() {
+    this.today.setMonth(this.today.getMonth() - 1);
+    this.dayOfMonthList = this.getDaysInMonth(this.today.getMonth(), this.today.getFullYear());
+  }
+
+  nextMonth() {
+    this.today.setMonth(this.today.getMonth() + 1);
+    this.dayOfMonthList = this.getDaysInMonth(this.today.getMonth(), this.today.getFullYear());
   }
 }
